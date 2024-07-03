@@ -4,7 +4,7 @@ button.addEventListener('click', async () => {
   const targetLanguage = document.getElementById('languageTo').value;
 
   try {
-    const response = await fetch('/api/convert', {
+    const response = await fetch('https://668586509cd4655c21766b34--umacodeconverter.netlify.app//api/convert', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
