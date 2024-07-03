@@ -1,7 +1,9 @@
+// functions/convert.js
+
 const { GoogleGenerativeAI } = require("@google/generative-ai");
 require('dotenv').config();
 
-const apiKey = process.env.API_KEY;
+const apiKey = process.env.GOOGLE_API_KEY;
 
 const genAI = new GoogleGenerativeAI(apiKey);
 
@@ -38,7 +40,7 @@ exports.handler = async function(event, context) {
     console.error("Error running the generative AI model:", error);
     return {
       statusCode: 500,
-      body: 'Internal server error',
+      body: `Internal server error: ${error.message}`,
     };
   }
 };
