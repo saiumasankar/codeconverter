@@ -3,7 +3,7 @@
 const button = document.getElementById('convertButton');
 button.addEventListener('click', async () => {
   const code = document.getElementById('codeFrom').value;
-  const targetLanguage = document.getElementById('languageTo').value;
+  const targetLanguage = document.getElementById('codeTo').value;
 
   try {
     const apiUrl = 'https://66858d799cd4656559766b91--umacodeconverter.netlify.app/.netlify/functions/convert'; // Update with your Netlify function endpoint
