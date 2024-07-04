@@ -6,7 +6,7 @@ button.addEventListener('click', async () => {
   const targetLanguage = document.getElementById('languageTo').value;
 
   try {
-    const apiUrl = 'https://668591a0ed4d586a9aabc8d2--umacodeconverter.netlify.app/.netlify/functions/convert'; // Update with your Netlify function endpoint
+    const apiUrl = '/.netlify/functions/convert'; // Update with your Netlify function endpoint
 
     const response = await fetch(apiUrl, {
       method: 'POST',
