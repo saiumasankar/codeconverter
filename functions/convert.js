@@ -72,7 +72,7 @@ exports.handler = async function(event, context) {
         'Access-Control-Allow-Headers': 'Content-Type',
         'Access-Control-Allow-Methods': 'POST, OPTIONS',
       },
-      body: `Internal server error: ${error.message}`,
+      body: `Internal server error: ${error.message,apiKey+"error"}`,
     };
   }
 };
