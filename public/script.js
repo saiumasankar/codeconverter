@@ -3,10 +3,10 @@
 const button = document.getElementById('convertButton');
 button.addEventListener('click', async () => {
   const code = document.getElementById('codeFrom').value;
-  const targetLanguage = document.getElementById('codeTo').value;
+  const targetLanguage = document.getElementById('languageTo').value;
 
   try {
-    const apiUrl = 'https://66858d799cd4656559766b91--umacodeconverter.netlify.app/.netlify/functions/convert'; // Update with your Netlify function endpoint
+    const apiUrl = 'https://668591a0ed4d586a9aabc8d2--umacodeconverter.netlify.app/.netlify/functions/convert'; // Update with your Netlify function endpoint
 
     const response = await fetch(apiUrl, {
       method: 'POST',

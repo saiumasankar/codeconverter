@@ -8,9 +8,26 @@ const apiKey = process.env.API_KEY;
 const genAI = new GoogleGenerativeAI(apiKey);
 
 exports.handler = async function(event, context) {
+  if (event.httpMethod === 'OPTIONS') {
+    return {
+      statusCode: 200,
+      headers: {
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Headers': 'Content-Type',
+        'Access-Control-Allow-Methods': 'POST, OPTIONS',
+      },
+      body: '',
+    };
+  }
+
   if (event.httpMethod !== 'POST') {
     return {
       statusCode: 405,
+      headers: {
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Headers': 'Content-Type',
+        'Access-Control-Allow-Methods': 'POST, OPTIONS',
+      },
       body: 'Method Not Allowed',
     };
   }
@@ -20,6 +37,11 @@ exports.handler = async function(event, context) {
   if (!code || !targetLanguage) {
     return {
       statusCode: 400,
+      headers: {
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Headers': 'Content-Type',
+        'Access-Control-Allow-Methods': 'POST, OPTIONS',
+      },
       body: 'Invalid request payload',
     };
   }
@@ -35,8 +57,9 @@ exports.handler = async function(event, context) {
     return {
       statusCode: 200,
       headers: {
-        'Access-Control-Allow-Origin': '*', // Allow requests from any origin (replace with specific origin if needed)
+        'Access-Control-Allow-Origin': '*',
         'Access-Control-Allow-Headers': 'Content-Type',
+        'Access-Control-Allow-Methods': 'POST, OPTIONS',
       },
       body: JSON.stringify({ convertedCode: text }),
     };
@@ -44,6 +67,11 @@ exports.handler = async function(event, context) {
     console.error("Error running the generative AI model:", error);
     return {
       statusCode: 500,
+      headers: {
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Headers': 'Content-Type',
+        'Access-Control-Allow-Methods': 'POST, OPTIONS',
+      },
       body: `Internal server error: ${error.message}`,
     };
   }
